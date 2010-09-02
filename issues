@@ -1,0 +1,18 @@
+Current issues that arise during modifications, my personal responsibility (ShaiW)
+ - The label list in the AssemblyTranslator doesn't seem to update after I open it
+ - Find a normal picture for the label list
+ - The CPUEmulator doesn't actually do anything currently
+
+Known quirks and bugs
+ - The VMEmulator doesn't let you manually modify RAM once the "next step" or "full run" button is pushed
+ - Pushing a constant kills the VMEmulator
+ - The Java implementation of the keyboard class has poor keyboard sensitivity for some reason, 
+   which does not happen when using our Jack class.
+ - Sometimes the VMEmulator just stops responding to events, needs more research
+
+Suggestions for further development
+ - School supplied XML writer (DONE)
+ - Store comments and labels in the CPUEmulator (under development by ShaiW)
+ - Resize
+ - Step-back button
+ - Support for sound?
