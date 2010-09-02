@@ -26,7 +26,7 @@ public class HackAssembler {
         }
         
         @SuppressWarnings("unused")
-		AssemblyParser assembler;
+		HackTranslator assembler;
         
         //If a file is passed as an argument assemble it and quit
         if (args.length == 1) {
@@ -45,15 +45,15 @@ public class HackAssembler {
             } catch (Exception e) {
             }
 
-//            try {
+            try {
                 HackAssemblerGUI gui = new AssemblerComponent();
                 gui.setAboutFileName(HELPFILES_PATH+"asmAbout.html");
                 gui.setUsageFileName(HELPFILES_PATH+"asmUsage.html");
-//                assembler = new AssemblyParser(gui, Definitions.ROM_SIZE, (short)0, null);
-//            } catch (HackTranslatorException hte) {
-//                System.err.println(hte.getMessage());
-//                System.exit(-1);
-//            }
+                assembler = new AssemblyParser(gui, Definitions.ROM_SIZE, (short)0, null);
+            } catch (HackTranslatorException hte) {
+                System.err.println(hte.getMessage());
+                System.exit(-1);
+            }
         }
     }
 }

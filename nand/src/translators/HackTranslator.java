@@ -450,7 +450,6 @@ public abstract class HackTranslator implements HackTranslatorEventListener, Act
      */
     protected void showProgram() {
         gui.getDestination().reset();
-        
         ((TextFileComponent)gui.getDestination()).setContents(program);
     }
 
@@ -471,7 +470,7 @@ public abstract class HackTranslator implements HackTranslatorEventListener, Act
     }
 
     // Reads a single line from the source, compiles it and writes the result to the
-    // detination.
+    // destination.
     private void singleStep() {
         singleStepLocked = true;
 
@@ -663,7 +662,6 @@ public abstract class HackTranslator implements HackTranslatorEventListener, Act
 
     public void actionPerformed(HackTranslatorEvent event) {
         Thread t;
-
         switch (event.getAction()) {
             case HackTranslatorEvent.SOURCE_LOAD:
                 String fileName = (String)event.getData();

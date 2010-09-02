@@ -108,7 +108,7 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
     public void notifyHackTranslatorListeners(byte action, Object data) {
         HackTranslatorEvent event = new HackTranslatorEvent(this,action,data);
         for(int i=0;i<listeners.size();i++)
-            ((HackTranslatorEventListener)listeners.elementAt(i)).actionPerformed(event);
+        	((HackTranslatorEventListener)listeners.elementAt(i)).actionPerformed(event);
     }
 
     public void removeHackTranslatorListener (HackTranslatorEventListener listener) {
@@ -242,8 +242,9 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
     private void loadSource() {
         int returnVal = sourceFileChooser.showDialog(this, "Load Source File");
         if(returnVal == JFileChooser.APPROVE_OPTION)
-            notifyHackTranslatorListeners(HackTranslatorEvent.SOURCE_LOAD,
-                                          sourceFileChooser.getSelectedFile().getAbsolutePath());
+        	notifyHackTranslatorListeners(HackTranslatorEvent.SOURCE_LOAD,
+                    sourceFileChooser.getSelectedFile().getAbsolutePath());
+            
     }
 
     // saves the destination file
@@ -563,6 +564,7 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
      * Implementing the action of pressing the load button.
      */
     public void loadButton_actionPerformed(ActionEvent e) {
+
         loadSource();
     }
 

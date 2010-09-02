@@ -143,7 +143,6 @@ public class AssemblyParser extends HackTranslator {
 
     protected void initSource() throws HackTranslatorException {
         program = new AsmProgram(generateSymbolTable());
-        
     }
 
     // Generates The symbol table by attaching each label with it's appropriate
@@ -362,6 +361,7 @@ public class AssemblyParser extends HackTranslator {
             case HackTranslatorEvent.SOURCE_LOAD:
                 comparisonFileName = "";
                 comparisonReader = null;
+                System.out.println("I'm at LoadSourceTask");
                 ((HackAssemblerGUI)gui).setComparisonName("");
                 ((HackAssemblerGUI)gui).hideComparison();
                 break;

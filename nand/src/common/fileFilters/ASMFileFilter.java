@@ -26,7 +26,6 @@ public class ASMFileFilter extends FileFilter {
                 return false;
             }
         }
-
         return false;
     }
 

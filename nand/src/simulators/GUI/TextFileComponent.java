@@ -216,7 +216,6 @@ public class TextFileComponent extends JPanel implements TextFileGUI {
     }
     
     public void setContents (AsmProgram program) {
-    	
         rowsVector.removeAllElements();
         for (AsmProgram.AsmLine l : program) {
         	addLine(Conversions.decimalToBinary(l.value(), 16));
