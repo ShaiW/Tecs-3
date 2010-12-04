@@ -97,7 +97,7 @@ public class FileDisplayComponent extends JPanel {
         fileDisplayTable.clearSelection();
         fileDisplayTable.revalidate();
         try {
-            wait(250);
+            wait(50);
         } catch (InterruptedException ie) {
         }
 
