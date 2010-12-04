@@ -298,6 +298,9 @@ public abstract class HackTranslator implements HackTranslatorEventListener, Act
             }
 
             sourceReader.close();
+            if (lines.size() == 0) {
+                throw new HackTranslatorException("File is empty");
+            }
 
             source = new String[formattedLines.size()];
             formattedLines.toArray(source);
@@ -327,8 +330,10 @@ public abstract class HackTranslator implements HackTranslatorEventListener, Act
         }
 
         if (errorMessage != null) {
-            if (gui != null)
+            if (gui != null) {
                 gui.enableLoadSource();
+                gui.getSource().setContents(new String[0]);
+            }
 
             throw new HackTranslatorException(errorMessage);
         }

@@ -69,7 +69,8 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
 
     // The labels
     private JLabel arrowLabel;
-    private JLabel messageLbl;
+    private JTextArea messageLbl;
+    private JScrollPane messageLblPane;
 
     // The text components of the source and destination files
     private TextFileComponent source;
@@ -386,7 +387,8 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
         toolBar = new JToolBar();
         menuBar = new JMenuBar();
         arrowLabel = new JLabel();
-        messageLbl = new JLabel();
+        messageLbl = new JTextArea();
+        messageLblPane = new JScrollPane(messageLbl);
         listeners = new Vector();
         ffwdButton = new MouseOverJButton();
         rewindButton = new MouseOverJButton();
@@ -488,9 +490,14 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
         fullTranslationButton.setIcon(fullTranslationIcon);
 
         messageLbl.setFont(Utilities.statusLineFont);
-        messageLbl.setBorder(BorderFactory.createLoweredBevelBorder());
-        messageLbl.setBounds(new Rectangle(0, 672, TRANSLATOR_WIDTH - 8, 20));
-        getContentPane().add(messageLbl, null);
+        messageLbl.setLineWrap(true);
+        messageLbl.setEditable(false);
+        messageLbl.setCursor(null);
+        messageLbl.setOpaque(false);
+        messageLbl.setFocusable(false);
+        messageLblPane.setBorder(BorderFactory.createLoweredBevelBorder());
+        messageLblPane.setBounds(new Rectangle(0, 672, TRANSLATOR_WIDTH - 8, 20));
+        getContentPane().add(messageLblPane, null);
 
         arrowLabel.setBounds(new Rectangle(290, 324, 88, 71));
         arrowLabel.setIcon(arrowIcon);

@@ -109,7 +109,8 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
     protected JRadioButtonMenuItem partAnimMenuItem, fullAnimMenuItem, noAnimMenuItem;
 
     // the message label (status line)
-    protected JLabel messageLbl = new JLabel();
+    protected JTextArea messageLbl = new JTextArea();
+    protected JScrollPane messageLblPane;
 
     // component for displaying the script, output file and comparison file.
     protected FileDisplayComponent scriptComponent;
@@ -897,11 +898,19 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
                 additionalDisplayCombo_actionPerformed(e);
             }
         });
-
+        
+        
         messageLbl.setFont(Utilities.statusLineFont);
-        messageLbl.setBorder(BorderFactory.createLoweredBevelBorder());
-        messageLbl.setBounds(new Rectangle(0, 667, CONTROLLER_WIDTH - 8, 25));
+        messageLbl.setLineWrap(true);
+        messageLbl.setEditable(false);
+        messageLbl.setCursor(null);
+        messageLbl.setOpaque(false);
+        messageLbl.setFocusable(false);
+        messageLblPane = new JScrollPane(messageLbl);
+        messageLblPane.setBorder(BorderFactory.createLoweredBevelBorder());
+        messageLblPane.setBounds(new Rectangle(0, 667, CONTROLLER_WIDTH - 8, 25));
 
+        
         toolBar = new JToolBar();
         toolBar.setSize(new Dimension(TOOLBAR_WIDTH,TOOLBAR_HEIGHT));
         toolBar.setLayout(new FlowLayout(FlowLayout.LEFT, 3, 0));
@@ -920,7 +929,7 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
         setJMenuBar(menuBar);
 
         this.setDefaultCloseOperation(3);
-        this.getContentPane().add(messageLbl, null);
+        this.getContentPane().add(messageLblPane, null);
 
         setControllerSize();
 
