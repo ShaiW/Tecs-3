@@ -298,9 +298,6 @@ public abstract class HackTranslator implements HackTranslatorEventListener, Act
             }
 
             sourceReader.close();
-            if (lines.size() == 0) {
-                throw new HackTranslatorException("File is empty");
-            }
 
             source = new String[formattedLines.size()];
             formattedLines.toArray(source);
