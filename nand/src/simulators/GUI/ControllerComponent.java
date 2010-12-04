@@ -924,8 +924,20 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
         messageLblPane = new JScrollPane(messageLbl);
         messageLblPane.setBorder(BorderFactory.createLoweredBevelBorder());
         messageLblPane.setBounds(new Rectangle(0, 667, CONTROLLER_WIDTH - 8, 25));
-
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.anchor = GridBagConstraints.PAGE_END;
+		c.gridx = 0;
+		c.gridy = 2;
+        this.getContentPane().add(messageLblPane, c);
         
+
+
         toolBar = new JToolBar();
         toolBar.setSize(new Dimension(TOOLBAR_WIDTH,TOOLBAR_HEIGHT));
         toolBar.setLayout(new FlowLayout(FlowLayout.LEFT, 3, 0));
@@ -933,9 +945,7 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
         toolBar.setLocation(0,0);
         toolBar.setBorder(BorderFactory.createEtchedBorder());
         arrangeToolBar();
-
-
-		GridBagConstraints c = new GridBagConstraints();
+		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipadx = 0;
 		c.ipady = 0;
@@ -953,21 +963,9 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
         // Creating the menu bar
         menuBar = new JMenuBar();
         arrangeMenu();
-        setJMenuBar(menuBar);
+        this.setJMenuBar(menuBar);
 
         this.setDefaultCloseOperation(3);
-
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.ipadx = 0;
-		c.ipady = 0;
-		c.weightx = 0;
-		c.weighty = 0;
-		c.gridwidth = 1;
-		c.anchor = GridBagConstraints.PAGE_END;
-		c.gridx = 0;
-		c.gridy = 2;
-        this.getContentPane().add(messageLblPane, c);
 
         setControllerSize();
 

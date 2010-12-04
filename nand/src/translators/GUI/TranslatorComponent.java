@@ -403,7 +403,7 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
 
     // initializes the internal component of the translator
     protected void jbInit() {
-        getContentPane().setLayout(null);
+        this.getContentPane().setLayout(new GridBagLayout());
 
         loadButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -497,7 +497,17 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
         messageLbl.setFocusable(false);
         messageLblPane.setBorder(BorderFactory.createLoweredBevelBorder());
         messageLblPane.setBounds(new Rectangle(0, 672, TRANSLATOR_WIDTH - 8, 20));
-        getContentPane().add(messageLblPane, null);
+        GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 0;
+		c.gridwidth = 3;
+		c.anchor = GridBagConstraints.PAGE_END;
+		c.gridx = 0;
+		c.gridy = 2;
+        this.getContentPane().add(messageLblPane, c);
 
         arrowLabel.setBounds(new Rectangle(290, 324, 88, 71));
         arrowLabel.setIcon(arrowIcon);
@@ -507,8 +517,41 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
         source.setBounds(new Rectangle(35,100,source.getWidth(),source.getHeight()));
         destination.setBounds(new Rectangle(375,100,destination.getWidth(),destination.getHeight()));
 
-        getContentPane().add(source, null);
-        getContentPane().add(destination, null);
+		c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.5;
+		c.weighty = 1;
+		c.gridwidth = 1;
+		c.anchor = GridBagConstraints.PAGE_START;
+		c.gridx = 0;
+		c.gridy = 1;
+        this.getContentPane().add(source, c);
+
+		c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 1;
+		c.gridy = 1;
+        this.getContentPane().add(arrowLabel, c);
+
+		c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.5;
+		c.weighty = 1;
+		c.gridwidth = 1;
+		c.anchor = GridBagConstraints.PAGE_START;
+		c.gridx = 2;
+		c.gridy = 1;
+        this.getContentPane().add(destination, c);
 
         // Adding the tool bar to this container.
         toolBar.setFloatable(false);
@@ -516,7 +559,18 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
         toolBar.setLayout(new FlowLayout(FlowLayout.LEFT, 3, 0));
         toolBar.setBorder(BorderFactory.createEtchedBorder());
         arrangeToolBar();
-        getContentPane().add(toolBar, null);
+
+		c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 0;
+		c.gridwidth = 3;
+		c.anchor = GridBagConstraints.PAGE_START;
+		c.gridx = 0;
+		c.gridy = 0;
+        this.getContentPane().add(toolBar, c);
         toolBar.revalidate();
         toolBar.repaint();
         repaint();
@@ -529,7 +583,6 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
         setDefaultCloseOperation(3);
         setSize(new Dimension(TRANSLATOR_WIDTH,TRANSLATOR_HEIGHT));
         setVisible(true);
-        getContentPane().add(arrowLabel, null);
     }
 
     /**

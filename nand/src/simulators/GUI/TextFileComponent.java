@@ -290,7 +290,7 @@ public class TextFileComponent extends JPanel implements TextFileGUI {
                 }
             }
         });
-        this.setLayout(null);
+        this.setLayout(new GridBagLayout());
 
         scrollPane = new JScrollPane(textFileTable);
         scrollPane.setLocation(0,27);
@@ -302,8 +302,29 @@ public class TextFileComponent extends JPanel implements TextFileGUI {
         textFileTable.setFont(Utilities.valueFont);
         setBorder(BorderFactory.createEtchedBorder());
 
-        this.add(scrollPane, null);
-        this.add(nameLbl, null);
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 1;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.gridx = 0;
+		c.gridy = 1;
+        this.add(scrollPane, c);
+
+		c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 0.0;
+		c.gridwidth = 1;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.gridx = 0;
+		c.gridy = 0;
+        this.add(nameLbl, c);
 
     }
 
