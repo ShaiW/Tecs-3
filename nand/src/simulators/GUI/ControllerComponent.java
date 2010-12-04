@@ -146,8 +146,20 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
     }
 
     public void setSimulator(HackSimulatorGUI simulator) {
-        ((JComponent)simulator).setLocation(0,TOOLBAR_HEIGHT);
-        this.getContentPane().add((JComponent)simulator, null);
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 1;
+		c.anchor = GridBagConstraints.PAGE_START;
+		c.gridx = 0;
+		c.gridy = 1;
+        this.getContentPane().add((JComponent)simulator, c);
+	
+        //((JComponent)simulator).setLocation(0,TOOLBAR_HEIGHT);
+        //this.getContentPane().add((JComponent)simulator, c);
         ((JComponent)simulator).revalidate();
         repaint();
 
@@ -160,6 +172,8 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
             aboutWindow = new HTMLViewFrame(simulator.getAboutFileName());
             aboutWindow.setSize(450, 420);
         }
+
+		setVisible(true);
     }
 
 
@@ -774,7 +788,8 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
     // Initializes this component.
     private void jbInit() {
         fileChooser.setFileFilter(new ScriptFileFilter());
-        this.getContentPane().setLayout(null);
+        //this.getContentPane().setLayout(null);
+		this.getContentPane().setLayout(new GridBagLayout());
 
         Hashtable labelTable = new Hashtable();
 
@@ -918,7 +933,19 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
         toolBar.setLocation(0,0);
         toolBar.setBorder(BorderFactory.createEtchedBorder());
         arrangeToolBar();
-        this.getContentPane().add(toolBar, null);
+
+
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.anchor = GridBagConstraints.PAGE_START;
+		c.gridx = 0;
+		c.gridy = 0;
+        this.getContentPane().add(toolBar, c);
         toolBar.revalidate();
         toolBar.repaint();
         repaint();
@@ -929,12 +956,23 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
         setJMenuBar(menuBar);
 
         this.setDefaultCloseOperation(3);
-        this.getContentPane().add(messageLblPane, null);
+
+		c = new GridBagConstraints();
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.anchor = GridBagConstraints.PAGE_END;
+		c.gridx = 0;
+		c.gridy = 2;
+        this.getContentPane().add(messageLblPane, c);
 
         setControllerSize();
 
         // sets the frame to be visible.
-        setVisible(true);
+        //setVisible(true);
 
     }
 
