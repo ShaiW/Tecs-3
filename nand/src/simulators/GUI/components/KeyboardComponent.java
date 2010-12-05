@@ -67,16 +67,16 @@ public class KeyboardComponent extends JPanel implements KeyboardGUI {
 
     // Initializes this component.
     private void jbInit() {
-        keyNameText.setBounds(new Rectangle(258, 0, 258, 27));
+        //keyNameText.setBounds(new Rectangle(258, 0, 258, 27));
         keyNameText.setEnabled(false);
         keyNameText.setFont(new Font("Times New Roman", 1, 14));
         keyNameText.setDisabledTextColor(Color.black);
         keyNameText.setEditable(false);
         keyNameText.setHorizontalAlignment(SwingConstants.CENTER);
         keyNameText.setBackground(SystemColor.info);
-        this.setLayout(null);
+        this.setLayout(new GridBagLayout());
         keyButton.setIcon(keyboardIcon);
-        keyButton.setBounds(new Rectangle(0, 0, 258, 27));
+        //keyButton.setBounds(new Rectangle(0, 0, 258, 27));
         keyButton.addFocusListener(new FocusListener() {
             public void focusGained(FocusEvent e) {
                 keyButton_focusGained(e);
@@ -86,8 +86,31 @@ public class KeyboardComponent extends JPanel implements KeyboardGUI {
                 keyButton_focusLost(e);
             }
         });
-        this.add(keyButton, null);
-        this.add(keyNameText, null);
+
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.NONE;
+		c.ipadx = 30;
+		c.ipady = 0;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.LINE_START;
+		c.gridx = 0;
+		c.gridy = 0;
+        this.add(keyButton, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.LINE_START;
+		c.gridx = 1;
+		c.gridy = 0;
+        this.add(keyNameText, c);
 
         setPreferredSize(new Dimension(516, 27));
         setSize(516, 27);

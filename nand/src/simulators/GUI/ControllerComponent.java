@@ -945,7 +945,6 @@ public class ControllerComponent extends JFrame implements ControllerGUI,
         toolBar.setLocation(0,0);
         toolBar.setBorder(BorderFactory.createEtchedBorder());
         arrangeToolBar();
-		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipadx = 0;
 		c.ipady = 0;

@@ -517,7 +517,6 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
         source.setBounds(new Rectangle(35,100,source.getWidth(),source.getHeight()));
         destination.setBounds(new Rectangle(375,100,destination.getWidth(),destination.getHeight()));
 
-		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 		c.ipadx = 0;
 		c.ipady = 0;
@@ -529,7 +528,6 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
 		c.gridy = 1;
         this.getContentPane().add(source, c);
 
-		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipadx = 0;
 		c.ipady = 0;
@@ -541,7 +539,6 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
 		c.gridy = 1;
         this.getContentPane().add(arrowLabel, c);
 
-		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 		c.ipadx = 0;
 		c.ipady = 0;
@@ -559,8 +556,6 @@ public class TranslatorComponent extends JFrame implements HackTranslatorGUI {
         toolBar.setLayout(new FlowLayout(FlowLayout.LEFT, 3, 0));
         toolBar.setBorder(BorderFactory.createEtchedBorder());
         arrangeToolBar();
-
-		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipadx = 0;
 		c.ipady = 0;

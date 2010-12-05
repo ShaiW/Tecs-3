@@ -314,7 +314,6 @@ public class TextFileComponent extends JPanel implements TextFileGUI {
 		c.gridy = 1;
         this.add(scrollPane, c);
 
-		c = new GridBagConstraints();
 		c.fill = GridBagConstraints.BOTH;
 		c.ipadx = 0;
 		c.ipady = 0;

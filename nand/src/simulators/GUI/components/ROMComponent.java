@@ -49,7 +49,7 @@ public class ROMComponent extends PointedMemoryComponent implements ROMGUI {
     private final static int ASM_FORMAT = ROM.ASM_FORMAT;
 
     // The load file button.
-    protected MouseOverJButton loadButton = new MouseOverJButton();
+    protected JButton loadButton = new JButton();
 
     // The icon on the load file button.
     private ImageIcon loadIcon = new ImageIcon(Utilities.imagesDir + "open2.gif");
@@ -235,6 +235,7 @@ public class ROMComponent extends PointedMemoryComponent implements ROMGUI {
         loadButton.setIcon(loadIcon);
         loadButton.setBounds(new Rectangle(97, 2, 31, 25));
         loadButton.setToolTipText("Load Program");
+		loadButton.setBorder(BorderFactory.createEmptyBorder());
         loadButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 loadButton_actionPerformed(e);

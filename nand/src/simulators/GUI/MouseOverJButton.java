@@ -18,6 +18,9 @@
 package simulators.GUI;
 
 import javax.swing.*;
+import javax.swing.border.EtchedBorder;
+
+import java.awt.Color;
 import java.awt.event.*;
 
 /**
@@ -29,7 +32,7 @@ public class MouseOverJButton extends JButton implements MouseListener {
      * Constructs a new MouseOverJButton.
      */
     public MouseOverJButton() {
-        setBorder(null);
+        setBorder(BorderFactory.createEmptyBorder());
         addMouseListener(this);
     }
 
@@ -37,7 +40,8 @@ public class MouseOverJButton extends JButton implements MouseListener {
      * Called just after the cursor enters the bounds of the listened-to component.
      */
     public void mouseEntered(MouseEvent e) {
-        setBorder(BorderFactory.createRaisedBevelBorder());
+        //setBorder(BorderFactory.createRaisedBevelBorder());
+		setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
     }
 
     /**

@@ -75,8 +75,8 @@ public class MemoryComponent extends JPanel implements MemoryGUI {
     //******************************************
 
     // Creating buttons and icons.
-    protected MouseOverJButton  searchButton = new MouseOverJButton();
-    protected MouseOverJButton clearButton = new MouseOverJButton();
+    protected JButton  searchButton = new JButton();
+    protected JButton clearButton = new JButton();
     private ImageIcon searchIcon = new ImageIcon(Utilities.imagesDir + "find.gif");
     private ImageIcon clearIcon = new ImageIcon(Utilities.imagesDir + "smallnew.gif");
 
@@ -496,34 +496,86 @@ public class MemoryComponent extends JPanel implements MemoryGUI {
         });
 
         scrollPane = new JScrollPane(memoryTable);
-        this.setLayout(null);
+        this.setLayout(new GridBagLayout());
+		searchButton.setBorder(BorderFactory.createEmptyBorder());
         searchButton.setToolTipText("Search");
         searchButton.setIcon(searchIcon);
-        searchButton.setBounds(new Rectangle(159, 2, 31, 25));
+        //searchButton.setBounds(new Rectangle(159, 2, 31, 25));
         searchButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 searchButton_actionPerformed(e);
             }
         });
         memoryTable.setFont(Utilities.valueFont);
-        nameLbl.setBounds(new Rectangle(3, 5, 70, 23));
+        //nameLbl.setBounds(new Rectangle(3, 5, 70, 23));
         nameLbl.setFont(Utilities.labelsFont);
         determineColumnWidth();
         setBorder(BorderFactory.createEtchedBorder());
-        scrollPane.setLocation(0,27);
+        //scrollPane.setLocation(0,27);
 
         clearButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 clearButton_actionPerformed(e);
             }
         });
+		clearButton.setBorder(BorderFactory.createEmptyBorder());
         clearButton.setIcon(clearIcon);
-        clearButton.setBounds(new Rectangle(128, 2, 31, 25));
+        //clearButton.setBounds(new Rectangle(128, 2, 31, 25));
         clearButton.setToolTipText("Clear");
-        this.add(scrollPane, null);
-        this.add(searchButton, null);
-        this.add(nameLbl, null);
-        this.add(clearButton, null);
+
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 7;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.PAGE_END;
+		c.gridx = 0;
+		c.gridy = 2;
+        this.add(scrollPane, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 0.0;
+		c.gridwidth = 3;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.insets = new Insets(5,0,0,0);
+        this.add(nameLbl, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 5;
+		c.ipady = 5;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 3;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+        this.add(searchButton, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 5;
+		c.ipady = 5;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 4;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+        this.add(clearButton, c);
+
+		c.insets = new Insets(0,0,0,0);
     }
 
     /**
