@@ -350,7 +350,7 @@ public class VMEmulatorComponent extends HackSimulatorComponent implements VMEmu
 		c.insets = new Insets(0,0,0,0);
         this.add(segments.getSplitPane(),c);
 
-		c.fill = GridBagConstraints.BOTH;
+		c.fill = GridBagConstraints.NONE;
 		c.ipadx = 0;
 		c.ipady = 0;
 		c.weightx = 0.35;

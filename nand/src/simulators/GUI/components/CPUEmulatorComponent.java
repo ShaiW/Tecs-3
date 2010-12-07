@@ -252,7 +252,7 @@ public class CPUEmulatorComponent extends HackSimulatorComponent implements CPUE
 		c.insets = new Insets(0,0,10,0);
 	    this.add(a, c);
 
-		c.fill = GridBagConstraints.BOTH;
+		c.fill = GridBagConstraints.NONE;
 		c.ipadx = 0;
 		c.ipady = 0;
 		c.weightx = 1;
