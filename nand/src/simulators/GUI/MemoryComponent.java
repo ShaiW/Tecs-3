@@ -574,8 +574,6 @@ public class MemoryComponent extends JPanel implements MemoryGUI {
 		c.gridy = 0;
 		c.insets = new Insets(0,0,0,0);
         this.add(clearButton, c);
-
-		c.insets = new Insets(0,0,0,0);
     }
 
     /**

@@ -53,7 +53,7 @@ public class ProgramComponent extends JPanel implements VMProgramGUI {
     protected VMEmulatorInstruction[] instructions;
 
     // Creating the browse button.
-    protected MouseOverJButton browseButton = new MouseOverJButton();
+    protected JButton browseButton = new JButton();
 
     // Creating the icon of the button.
     private ImageIcon browseIcon = new ImageIcon(Utilities.imagesDir + "open2.gif");
@@ -72,7 +72,7 @@ public class ProgramComponent extends JPanel implements VMProgramGUI {
     private ColoredTableCellRenderer coloredRenderer = new ColoredTableCellRenderer();
 
     // Creating the search button.
-    private MouseOverJButton searchButton = new MouseOverJButton();
+    private JButton searchButton = new JButton();
 
     // Creating the icon for the search button.
     private ImageIcon searchIcon = new ImageIcon(Utilities.imagesDir + "find.gif");
@@ -87,7 +87,7 @@ public class ProgramComponent extends JPanel implements VMProgramGUI {
     private JLabel nameLbl = new JLabel();
 
     // Creating the clear button.
-    protected MouseOverJButton clearButton = new MouseOverJButton();
+    protected JButton clearButton = new JButton();
 
     // Creating the icon for the clear button.
     private ImageIcon clearIcon = new ImageIcon(Utilities.imagesDir + "smallnew.gif");
@@ -312,6 +312,7 @@ public class ProgramComponent extends JPanel implements VMProgramGUI {
         browseButton.setToolTipText("Load Program");
         browseButton.setIcon(browseIcon);
         browseButton.setBounds(new Rectangle(119, 2, 31, 24));
+		browseButton.setBorder(BorderFactory.createEmptyBorder());
         browseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 browseButton_actionPerformed(e);
@@ -329,13 +330,15 @@ public class ProgramComponent extends JPanel implements VMProgramGUI {
         searchButton.setToolTipText("Search");
         searchButton.setIcon(searchIcon);
         searchButton.setBounds(new Rectangle(188, 2, 31, 24));
+		searchButton.setBorder(BorderFactory.createEmptyBorder());
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 searchButton_actionPerformed(e);
             }
         });
         this.setForeground(Color.lightGray);
-        this.setLayout(null);
+        //this.setLayout(null);
+		this.setLayout(new GridBagLayout());
         nameLbl.setText("Program");
         nameLbl.setBounds(new Rectangle(5, 5, 73, 20));
         nameLbl.setFont(Utilities.labelsFont);
@@ -346,14 +349,78 @@ public class ProgramComponent extends JPanel implements VMProgramGUI {
             }
         });
         clearButton.setBounds(new Rectangle(154, 2, 31, 24));
+		clearButton.setBorder(BorderFactory.createEmptyBorder());
         clearButton.setIcon(clearIcon);
         clearButton.setToolTipText("Clear");
-        this.add(scrollPane, null);
-        this.add(nameLbl, null);
-        this.add(searchButton, null);
-        this.add(clearButton, null);
+
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 7;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.PAGE_END;
+		c.gridx = 0;
+		c.gridy = 2;
+        this.add(scrollPane, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 0.0;
+		c.gridwidth = 3;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.insets = new Insets(5,0,0,0);
+        this.add(nameLbl, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 5;
+		c.ipady = 5;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 5;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+        this.add(searchButton, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 5;
+		c.ipady = 5;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 4;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+        this.add(clearButton, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 5;
+		c.ipady = 5;
+		c.weightx = 0;
+		c.weighty = 0;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 3;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+        this.add(browseButton, c);
+
+		//Walshrych: Not sure how to test this.
         this.add(messageTxt, null);
-        this.add(browseButton, null);
+
         determineColumnWidth();
         programTable.setTableHeader(null);
         setBorder(BorderFactory.createEtchedBorder());

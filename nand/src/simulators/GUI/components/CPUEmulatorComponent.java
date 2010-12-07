@@ -184,7 +184,7 @@ public class CPUEmulatorComponent extends HackSimulatorComponent implements CPUE
 
         GridBagConstraints c = new GridBagConstraints();
 
-		//Walshrych: Not sure if bus works now. CPUEmulator was broken upon window scaling implementation
+		//Walshrych: Not sure if bus works now. CPUEmulator was broken when window scaling was implemented
 		// No way to know if fixed .... :(
 		c.fill = GridBagConstraints.BOTH;
 		c.ipadx = 0;

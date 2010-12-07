@@ -117,12 +117,38 @@ public class CallStackComponent extends JPanel implements CallStackGUI {
         setVisibleRows(DEFAULT_VISIBLE_ROWS);
         scrollPane.setLocation(0,27);
         setBorder(BorderFactory.createEtchedBorder());
-        this.setLayout(null);
+        //this.setLayout(null);
+		this.setLayout(new GridBagLayout());
         nameLbl.setText("Call Stack");
         nameLbl.setBounds(new Rectangle(3, 4, 70, 23));
         nameLbl.setFont(Utilities.labelsFont);
-        this.add(scrollPane, null);
-        this.add(nameLbl, null);
+
+		GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 7;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.PAGE_END;
+		c.gridx = 0;
+		c.gridy = 2;
+        this.add(scrollPane, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 0.0;
+		c.gridwidth = 3;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.insets = new Insets(5,0,0,0);
+        this.add(nameLbl, c);
+
     }
 
     /**

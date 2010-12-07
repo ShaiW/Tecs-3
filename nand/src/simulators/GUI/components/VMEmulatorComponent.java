@@ -247,7 +247,8 @@ public class VMEmulatorComponent extends HackSimulatorComponent implements VMEmu
 
     // Initialization of this component.
     private void jbInit() {
-        this.setLayout(null);
+        //this.setLayout(null);
+		this.setLayout(new GridBagLayout()); 
         keyboard.setBounds(492, 270, keyboard.getWidth(), keyboard.getHeight());
         screen.setBounds(492, 10, screen.getWidth(), screen.getHeight());
         program.setVisibleRows(15);
@@ -269,17 +270,137 @@ public class VMEmulatorComponent extends HackSimulatorComponent implements VMEmu
         callStack.setVisibleRows(7);
         callStack.setBounds(new Rectangle(8, 458, callStack.getWidth(), callStack.getHeight()));
 
-        this.add(bus, null);
-        this.add(screen, null);
-        this.add(keyboard, null);
-        this.add(program, null);
-        this.add(workingStack, null);
-        this.add(callStack, null);
-        this.add(calculator, null);
-        this.add(stack, null);
-        this.add(ram, null);
-        this.add(callStack, null);
-        this.add(segments.getSplitPane(),null);
+		GridBagConstraints c = new GridBagConstraints();
+		
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 5;
+		c.gridheight = 5;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+        this.add(bus, c);
+
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.5;
+		c.weighty = 0.5;
+		c.gridwidth = 2;
+		c.gridheight = 3;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+        this.add(program, c);
+
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0;
+		c.weighty = 0.25;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.gridx = 0;
+		c.gridy = 3;
+		c.insets = new Insets(0,0,0,0);
+        this.add(workingStack, c);
+
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.25;
+		c.weighty = 0.25;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 1;
+		c.gridy = 3;
+		c.insets = new Insets(0,0,0,0);
+        this.add(calculator, c);
+
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.5;
+		c.weighty = 0.25;
+		c.gridwidth = 2;
+		c.gridheight = 2;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 0;
+		c.gridy = 4;
+		c.insets = new Insets(0,0,0,0);
+        this.add(callStack, c);
+
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.15;
+		c.weighty = 1;
+		c.gridwidth = 1;
+		c.gridheight = 6;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 2;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+        this.add(segments.getSplitPane(),c);
+
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.35;
+		c.weighty = 1;
+		c.gridwidth = 2;
+		c.gridheight = 2;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 3;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+        this.add(screen, c);
+
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.35;
+		c.weighty = 0;
+		c.gridwidth = 2;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.gridx = 3;
+		c.gridy = 2;
+		c.insets = new Insets(0,0,0,0);
+        this.add(keyboard, c);
+
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.175;
+		c.weighty = 1;
+		c.gridwidth = 1;
+		c.gridheight = 3;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.gridx = 3;
+		c.gridy = 3;
+		c.insets = new Insets(0,0,0,0);
+        this.add(stack, c);
+
+		c.fill = GridBagConstraints.BOTH;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.175;
+		c.weighty = 1;
+		c.gridwidth = 1;
+		c.gridheight = 3;
+		c.anchor = GridBagConstraints.FIRST_LINE_START;
+		c.gridx = 4;
+		c.gridy = 3;
+		c.insets = new Insets(0,0,0,0);
+        this.add(ram, c);
 
         setSize(WIDTH,HEIGHT);
     }
