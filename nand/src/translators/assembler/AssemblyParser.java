@@ -361,7 +361,6 @@ public class AssemblyParser extends HackTranslator {
             case HackTranslatorEvent.SOURCE_LOAD:
                 comparisonFileName = "";
                 comparisonReader = null;
-                System.out.println("I'm at LoadSourceTask");
                 ((HackAssemblerGUI)gui).setComparisonName("");
                 ((HackAssemblerGUI)gui).hideComparison();
                 break;

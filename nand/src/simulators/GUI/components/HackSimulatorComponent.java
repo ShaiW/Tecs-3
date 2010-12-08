@@ -20,7 +20,9 @@ package simulators.GUI.components;
 import javax.swing.*;
 
 import simulators.controllers.*;
+import simulators.GUI.FileDisplayComponent;
 
+import java.awt.*;
 import java.awt.*;
 
 /**
@@ -35,15 +37,23 @@ public abstract class HackSimulatorComponent extends JPanel implements HackSimul
     protected String usageFileName, aboutFileName;
 
     public void setAdditionalDisplay (JComponent additionalComponent) {
+    	if (additionalComponent != null) {
+    		setScreenVisible(false);
+    	} else {
+    		setScreenVisible(true);
+    	}
+    	
         if(currentAdditionalDisplay != null) {
             remove(currentAdditionalDisplay);
-        }
-        JComponent c = additionalComponent;
+        }	
+
         currentAdditionalDisplay = additionalComponent;
 
         if (additionalComponent != null) {
-            additionalComponent.setLocation(getAdditionalDisplayLocation());
-            add(additionalComponent, 1);
+    		GridBagConstraints gridBag = getAdditionalDisplayGridConstraint();
+        	
+            //additionalComponent.setLocation(getAdditionalDisplayLocation());
+            this.add(additionalComponent, gridBag);
             additionalComponent.revalidate();
         }
 
@@ -55,6 +65,16 @@ public abstract class HackSimulatorComponent extends JPanel implements HackSimul
      * Returns the location on the simulator panel of the additional display.
      */
     protected abstract Point getAdditionalDisplayLocation();
+
+    /**
+     * Returns the grid constraint on the simulator panel of the additional display.
+     */
+    protected abstract void setScreenVisible(boolean state);
+    
+    /**
+     * Sets visibility on screen
+     */
+    protected abstract GridBagConstraints getAdditionalDisplayGridConstraint();
 
     public void setUsageFileName(String fileName) {
         usageFileName = fileName;

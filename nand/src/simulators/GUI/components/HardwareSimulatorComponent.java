@@ -212,7 +212,17 @@ public class HardwareSimulatorComponent extends HackSimulatorComponent implement
     public Point getAdditionalDisplayLocation() {
         return new Point(496, 13);
     }
+    
+    public GridBagConstraints getAdditionalDisplayGridConstraint() {
+    	GridBagConstraints c = new GridBagConstraints();
+		return c;
+    }
 
+
+    public void setScreenVisible(boolean state) {
+    	// We don't have a screen
+    }
+    
     public void setWorkingDir(File file) {
     }
 

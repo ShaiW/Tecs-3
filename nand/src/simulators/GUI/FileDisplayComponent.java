@@ -96,10 +96,10 @@ public class FileDisplayComponent extends JPanel {
         rowsVector.toArray(rows);
         fileDisplayTable.clearSelection();
         fileDisplayTable.revalidate();
-        try {
-            wait(250);
-        } catch (InterruptedException ie) {
-        }
+        //try {
+        //    wait(50);
+        //} catch (InterruptedException ie) {
+        //}
 
         repaint();
     }
@@ -115,7 +115,7 @@ public class FileDisplayComponent extends JPanel {
 
     // The initialization of this component.
     private void jbInit() {
-        setLayout(null);
+        //setLayout(null);
         fileDisplayTable = new WideTable(new FileDisplayTableModel(), 1000);
         fileDisplayTable.setTableHeader(null);
         fileDisplayTable.setDefaultRenderer(fileDisplayTable.getColumnClass(0), new FileDisplayTableCellRenderer());
@@ -126,14 +126,14 @@ public class FileDisplayComponent extends JPanel {
         fileDisplayTable.setShowVerticalLines(false);
 
         fileDisplayTable.setFont(Utilities.valueFont);
-        setBorder(BorderFactory.createEtchedBorder());
+        //setBorder(BorderFactory.createEtchedBorder());
 
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         scrollPane.getHorizontalScrollBar().setUnitIncrement(scrollPane.getHorizontalScrollBar().getBlockIncrement());
         scrollPane.setLocation(0,0);
-        scrollPane.setPreferredSize(new Dimension(516, 260));
-        scrollPane.setSize(516, 260);
-        setSize(516,260);
+        scrollPane.setPreferredSize(new Dimension(512, 256));
+        scrollPane.setSize(512, 256);
+        setSize(512,256);
 
         this.add(scrollPane, null);
     }

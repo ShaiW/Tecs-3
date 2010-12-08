@@ -100,6 +100,26 @@ public class CPUEmulatorComponent extends HackSimulatorComponent implements CPUE
         return new Point(476, 25);
     }
 
+    public GridBagConstraints getAdditionalDisplayGridConstraint() {
+    	GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.NONE;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 2;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+		return c;
+    }
+
+    public void setScreenVisible(boolean state) {
+    	screen.setVisible(state);
+    }
+    
     /**
      * Returns the alu GUI component.
      */
@@ -263,7 +283,7 @@ public class CPUEmulatorComponent extends HackSimulatorComponent implements CPUE
 		c.gridx = 2;
 		c.gridy = 0;
 		c.insets = new Insets(0,0,0,0);
-        this.add(screen, c);
+		this.add(screen, c);
 
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.ipadx = 0;

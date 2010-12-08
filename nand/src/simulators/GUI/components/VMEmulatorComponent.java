@@ -217,7 +217,27 @@ public class VMEmulatorComponent extends HackSimulatorComponent implements VMEmu
     public Point getAdditionalDisplayLocation() {
         return new Point(492, 10);
     }
+    
+    public GridBagConstraints getAdditionalDisplayGridConstraint() {
+    	GridBagConstraints c = new GridBagConstraints();
+		c.fill = GridBagConstraints.NONE;
+		c.ipadx = 0;
+		c.ipady = 0;
+		c.weightx = 0.35;
+		c.weighty = 1;
+		c.gridwidth = 2;
+		c.gridheight = 2;
+		c.anchor = GridBagConstraints.CENTER;
+		c.gridx = 3;
+		c.gridy = 0;
+		c.insets = new Insets(0,0,0,0);
+		return c;
+    }
 
+    public void setScreenVisible(boolean state) {
+    	screen.setVisible(state);
+    }
+    
     // Sets the memory component of the memory segments with the current RAM.
     private void setSegmentsRam() {
         // Setting the memory of the segments.
@@ -278,7 +298,7 @@ public class VMEmulatorComponent extends HackSimulatorComponent implements VMEmu
 		c.weightx = 1;
 		c.weighty = 1;
 		c.gridwidth = 5;
-		c.gridheight = 5;
+		c.gridheight = 6;
 		c.anchor = GridBagConstraints.CENTER;
 		c.gridx = 0;
 		c.gridy = 0;
